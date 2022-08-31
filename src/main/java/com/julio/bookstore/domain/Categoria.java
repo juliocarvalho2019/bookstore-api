@@ -1,15 +1,11 @@
 package com.julio.bookstore.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Categoria implements Serializable{
@@ -19,7 +15,8 @@ public class Categoria implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nomeString;
+	
+	private String nome;
 	private String descricao;
 	
     @OneToMany(mappedBy = "categoria")
@@ -29,10 +26,10 @@ public class Categoria implements Serializable{
 		super();
 	}
 
-	public Categoria(Integer id, String nomeString, String descricao) {
+	public Categoria(Integer id, String nome, String descricao) {
 		super();
 		this.id = id;
-		this.nomeString = nomeString;
+		this.nome = nome;
 		this.descricao = descricao;
 	}
 
@@ -44,12 +41,12 @@ public class Categoria implements Serializable{
 		this.id = id;
 	}
 
-	public String getNomeString() {
-		return nomeString;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeString(String nomeString) {
-		this.nomeString = nomeString;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getDescricao() {
