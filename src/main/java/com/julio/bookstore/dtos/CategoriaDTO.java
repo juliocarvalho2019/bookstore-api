@@ -9,7 +9,7 @@ public class CategoriaDTO implements  Serializable{
 	
 	private Integer id;
 	private String nome;
-	private String descriçãoString;
+	private String descrição;
 	
 	public CategoriaDTO() {
 		super();
@@ -19,7 +19,7 @@ public class CategoriaDTO implements  Serializable{
 		super();
 		this.id = obj.getId();
 		this.nome = obj.getNome();
-		this.descriçãoString = obj.getDescricao();
+		this.descrição = obj.getDescricao();
 	}
 
 	public Integer getId() {
@@ -38,12 +38,12 @@ public class CategoriaDTO implements  Serializable{
 		this.nome = nome;
 	}
 
-	public String getDescriçãoString() {
-		return descriçãoString;
+	public String getDescrição() {
+		return descrição;
 	}
 
-	public void setDescriçãoString(String descriçãoString) {
-		this.descriçãoString = descriçãoString;
+	public void setDescrição(String descrição) {
+		this.descrição = descrição;
 	}
 	
 	
