@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.julio.bookstore.domain.Categoria;
+import com.julio.bookstore.dtos.CategoriaDTO;
 import com.julio.bookstore.service.CategoriaService;
+
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value="/categorias")
@@ -22,5 +27,12 @@ public class CategoriaResource {
 		Categoria obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 		
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<CategoriaDTO>> findAll(){
+		List<Categoria> list = service.findAll();
+		List<CategoriaDTO> listDto = list.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDto);
 	}
 }
