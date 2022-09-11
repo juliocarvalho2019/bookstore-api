@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.julio.bookstore.domain.Categoria;
 import com.julio.bookstore.domain.Livro;
 import com.julio.bookstore.repositories.LivroRepository;
+import com.julio.bookstore.service.exceptions.DataIntegrityViolationException;
 import com.julio.bookstore.service.exceptions.ObjectNotFoundException;
 
 @Service
@@ -50,13 +51,10 @@ public class LivroService {
 		newObj.setTexto(obj.getTexto());		
 	}
 
-//	public void delete(Integer id) {
-//		findById(id);
-//		try {
-//			repository.deleteById(id);
-//		} catch (DataIntegrityViolationException e) {
-//			throw new com.julio.bookstore.service.exceptions.DataIntegrityViolationException("Categoria não pode ser deteletado! possui livros associados.");
-//		}
-//
-//	}
+	public void delete(Integer id) {
+		Livro obj = findById(id);
+		repository.delete(obj);
+		
+
+	}
 }
