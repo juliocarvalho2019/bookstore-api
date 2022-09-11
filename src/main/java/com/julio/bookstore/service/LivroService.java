@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.julio.bookstore.domain.Categoria;
 import com.julio.bookstore.domain.Livro;
 import com.julio.bookstore.repositories.LivroRepository;
-import com.julio.bookstore.service.exceptions.DataIntegrityViolationException;
 import com.julio.bookstore.service.exceptions.ObjectNotFoundException;
 
 @Service
